@@ -1,0 +1,90 @@
+#1. TIPE DATA
+a <- c(1,2,-5,0.3,6,-2,4) # numeric vector
+b <- c("one","two","three") # character vector
+c <- c(TRUE,TRUE,TRUE,FALSE,TRUE) #logical vector
+print(a)
+print(b)
+print(c)
+
+#MATRIKS
+cells <- c(3,15,-27,38)
+naufal <- c("R1", "R2")
+naufal <- c("C1", "C2") 
+naufal_matrix <- matrix(cells, nrow=2, ncol=2, byrow=TRUE,
+                      dimnames=list(naufal, naufal))
+print(naufal_matrix)
+
+
+naufal1 <- c(1,2,3,4)
+naufal2 <- c("red", "white", "red", NA)
+naufal3 <- c(TRUE,TRUE,TRUE,FALSE)
+dataku <- data.frame(naufal1, naufal2, naufal3)
+names(dataku) <- c("ID","Color","Passed") # variable names 
+print(dataku)
+
+data_naufal <- data.frame(id = letters[1:10], x = 1:10, y = 11:20)
+print (data_naufal)
+
+install.packages("RMySQL")
+library(RMySQL)
+con = dbConnect(MySQL(), user = 'root', password = '', dbname = 'houseprices', host = 'localhost')
+dbListTables(con) 
+myQuery <- "select * from naufal;"
+df <- dbGetQuery(con, myQuery)
+View(df)
+
+install.packages("dplyr")
+
+library(dplyr)
+df<-filter(df,Brick=="No")
+print(df)
+
+library(dplyr)
+df<-filter(df,Brick=="No"|Neighborhood=="East")
+print(df)
+
+a <- c(1,2,-5,0.3,6,-2,4) # numeric vector
+b <- c("one","two","three") # character vector
+c <- c(TRUE,TRUE,TRUE,FALSE,TRUE) #logical vector
+print(a)
+print(b)
+print(c)
+
+#MATRIKS
+cells <- c(3,15,-27,38)
+r_naufal <- c("R1", "R2")
+c_naufal <- c("C1", "C2") 
+naufal_matrix <- matrix(cells, nrow=2, ncol=2, byrow=TRUE,dimnames=list(r_naufal, c_naufal))
+print(naufal_matrix)
+
+naufal1 <- c(1,2,3,4)
+naufal2 <- c("red", "white", "red", NA)
+naufal3 <- c(TRUE,TRUE,TRUE,FALSE)
+dataku <- data.frame(naufal1, naufal2, naufal3)
+names(dataku) <- c("ID","Color","Passed") # variable names 
+print(dataku)
+
+data_naufal <- data.frame(id = letters[1:10], x = 1:10, y = 11:20)
+print (data_naufal)
+
+install.packages("RMySQL")
+
+library(RMySQL)
+con = dbConnect(MySQL(), user = 'root', password = '', dbname = 'ps2naufal', host = 'localhost')
+dbListTables(con) 
+myQuery <- "select * from data_naufal;"
+df <- dbGetQuery(con, myQuery)
+
+library(dplyr)
+df<-filter(df,Brick=="No")
+print(df)
+
+library(RMySQL)
+con = dbConnect(MySQL(), user = 'root', password = '', dbname = 'ps2naufal', host = 'localhost')
+dbListTables(con) 
+myQuery <- "select * from data_naufal;"
+df <- dbGetQuery(con, myQuery)
+
+library(dplyr)
+df<-filter(df,Gender=="L")
+print(df)
